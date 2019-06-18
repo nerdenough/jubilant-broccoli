@@ -27,7 +27,7 @@ function Header() {
                 color: #444;
                 font-size: 1.6rem;
                 font-weight: 400;
-                text-transform: uppercase;
+                text-transform: capitalize;
               }
 
               .light {

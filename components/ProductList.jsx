@@ -1,37 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
 
-function ProductType({ type }) {
+function ProductList({ products }) {
   return (
-    <div className="productType">
-      <div className="header">
-        <h2>{type.name}</h2>
-      </div>
-
-      <ul className="list">
-        {type.children.map(item => {
-          const defaultVariant = item.variants
-            ? item.variants.find(variant => variant.isDefault)
-            : null
-
-          return (
-            <li key={item.id}>
-              <Link href={item.path}>
-                <div className="product">
-                  {defaultVariant && defaultVariant.image ? (
-                    <img src={defaultVariant.image.url} />
-                  ) : (
-                    <img src="https://placebear.com/200/200" alt={item.name} />
-                  )}
-                  <div className="name">
-                    <h3>{item.name}</h3>
-                  </div>
+    <ul className="productList">
+      {products.map(product => {
+        const defaultVariant = product.variants
+          ? product.variants.find(variant => variant.isDefault)
+          : null
+        return (
+          <li key={product.id}>
+            <Link href={product.path}>
+              <div className="product">
+                {defaultVariant && defaultVariant.image ? (
+                  <img src={defaultVariant.image.url} />
+                ) : (
+                  <img src="https://placebear.com/200/200" alt={product.name} />
+                )}
+                <div className="name">
+                  <h3>{product.name}</h3>
                 </div>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
+              </div>
+            </Link>
+          </li>
+        )
+      })}
 
       <style jsx>{`
         .productType {
@@ -53,7 +46,7 @@ function ProductType({ type }) {
           align-self: center;
         }
 
-        .list {
+        .productList {
           display: flex;
           flex-wrap: wrap;
           list-style: none;
@@ -85,8 +78,8 @@ function ProductType({ type }) {
           margin: 0 auto;
         }
       `}</style>
-    </div>
+    </ul>
   )
 }
 
-export default ProductType
+export default ProductList

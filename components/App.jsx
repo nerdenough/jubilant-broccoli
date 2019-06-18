@@ -10,7 +10,7 @@ function App({ children }) {
           margin: 0;
           padding: 0;
           font-size: 10px;
-          font-family: Helvetica, Arial, sans-serif;
+          font-family: Roboto, Helvetica, Arial, sans-serif;
         }
       `}</style>
     </>
