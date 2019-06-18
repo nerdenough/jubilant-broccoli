@@ -29,13 +29,11 @@ function ProductListItem({ product }) {
           background: #efefef;
           display: flex;
           flex-direction: column;
-          width: 20rem;
-          margin-right: 1rem;
-          margin-bottom: 1rem;
+          min-width: 20rem;
         }
 
         .productListItem img {
-          width: 20rem;
+          width: 100%;
           height: 20rem;
         }
 
