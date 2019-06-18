@@ -1,17 +1,17 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import TENANT_QUERY from '../lib/data/queries/tenant'
+import PRODUCTS_QUERY from '../lib/data/queries/products'
 
-function Header() {
+function Header({ title }) {
   return (
-    <Query query={TENANT_QUERY} variables={{ language: 'en' }}>
+    <Query query={PRODUCTS_QUERY} variables={{ language: 'en' }}>
       {({ loading, error, data }) => {
         if (loading || error || !data) return null
 
         return (
           <header className="header">
             <h1>
-              {data.tenant.name} <span className="light">| Products</span>
+              {data.tenant.name} <span className="light">| {title}</span>
             </h1>
 
             <style jsx>{`

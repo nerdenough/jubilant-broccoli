@@ -32,8 +32,8 @@ const Home = () => {
 
         return (
           <App>
-            <Head title="Home" />
-            <Header />
+            <Head title="Products" />
+            <Header title="Products" />
             <ProductListFilter
               onFilterChange={event => setPath(event.target.value)}
               items={items}
