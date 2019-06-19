@@ -14,6 +14,7 @@ const Home = () => {
     <Query query={PRODUCTS_QUERY} variables={{ language: 'en', path: '/' }}>
       {({ loading, error, data }) => {
         if (loading || error || !data) {
+          // TODO Handle loading and error states separately
           return null
         }
 

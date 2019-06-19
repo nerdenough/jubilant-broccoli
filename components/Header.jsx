@@ -1,21 +1,28 @@
 import React from 'react'
+import Link from 'next/link'
 import { Query } from 'react-apollo'
 import PRODUCTS_QUERY from '../lib/data/queries/products'
 
-function Header({ title }) {
+function Header() {
   return (
     <Query query={PRODUCTS_QUERY} variables={{ language: 'en' }}>
       {({ loading, error, data }) => {
-        if (loading || error || !data) return null
+        if (loading || error || !data) {
+          // TODO Handle loading and error states separately
+          return null
+        }
 
         return (
           <header className="header">
-            <h1>
-              {data.tenant.name} <span className="light">| {title}</span>
-            </h1>
+            <nav>
+              <h1>{data.tenant.name}</h1>
+              <Link href="/">
+                <a className="light">Products</a>
+              </Link>
+            </nav>
 
             <style jsx>{`
-              .header {
+              .header nav {
                 display: flex;
                 height: 5rem;
                 align-items: center;
@@ -28,10 +35,17 @@ function Header({ title }) {
                 font-size: 1.6rem;
                 font-weight: 400;
                 text-transform: capitalize;
+                margin-right: 2rem;
               }
 
               .light {
                 color: #666;
+                font-size: 1.6rem;
+                text-decoration: none;
+              }
+
+              .light:hover {
+                color: #444;
               }
             `}</style>
           </header>

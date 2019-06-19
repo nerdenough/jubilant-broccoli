@@ -15,6 +15,7 @@ const Product = ({ router }) => {
     >
       {({ loading, error, data }) => {
         if (loading || error || !data) {
+          // TODO Handle loading and error states separately
           return null
         }
 

@@ -30,6 +30,7 @@ function ListItem({ variant }) {
 
         .name {
           display: flex;
+          color: #444;
           height: 4rem;
           padding: 0.5rem 0.5rem;
           align-items: center;

@@ -40,6 +40,7 @@ function ProductListItem({ product }) {
         .name {
           display: flex;
           height: 4rem;
+          color: #444;
           padding: 0.5rem 0.5rem;
           align-items: center;
         }
