@@ -4,6 +4,7 @@ import { withRouter } from 'next/router'
 import App from '../components/App'
 import Head from '../components/Head'
 import Header from '../components/Header'
+import ProductDetails from '../components/ProductDetails'
 import PRODUCTS_QUERY from '../lib/data/queries/products'
 
 const Product = ({ router }) => {
@@ -21,8 +22,9 @@ const Product = ({ router }) => {
 
         return (
           <App>
-            <Head title="Product" />
+            <Head title={product.name} />
             <Header title={product.name} />
+            <ProductDetails product={product} />
           </App>
         )
       }}

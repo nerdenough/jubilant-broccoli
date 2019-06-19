@@ -1,4 +1,5 @@
 import React from 'react'
+import List from './List'
 import ProductListItem from './ProductListItem'
 
 function ProductList({ products }) {
@@ -18,21 +19,11 @@ function ProductList({ products }) {
   }
 
   return (
-    <ul className="productList">
+    <List>
       {products.map(product => (
         <ProductListItem key={product.id} product={product} />
       ))}
-
-      <style jsx>{`
-        .productList {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-          gap: 1rem;
-          list-style: none;
-          padding: 0 1rem;
-        }
-      `}</style>
-    </ul>
+    </List>
   )
 }
 
